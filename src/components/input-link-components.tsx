@@ -52,7 +52,7 @@ const InputLink = () => {
           {isPending ? "Loading..." : "Shorten URL"}
         </button>
       </div>
-      <ResultComponents url={url} />
+      {url && <ResultComponents url={url} />}
     </div>
   );
 };

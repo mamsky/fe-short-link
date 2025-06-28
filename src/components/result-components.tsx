@@ -12,6 +12,11 @@ const ResultComponents = ({ url }: { url: string }) => {
   return (
     <div className="bg-white/50 backdrop-blur-xl p-4 rounded-xl w-full max-w-xl text-black font-serif">
       <h1 className="font-bold text-xl sm:text-3xl mb-2">Result:</h1>
+      {url && (
+        <div className="flex justify-center my-3">
+          <QRCodeCanvas value={url} />
+        </div>
+      )}
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         {isPending && (
           <div className="animate-pulse h-6 bg-gray-100 rounded-full w-full max-w-md mb-2 sm:mb-0"></div>
@@ -26,7 +31,6 @@ const ResultComponents = ({ url }: { url: string }) => {
             >
               {url}
             </a>
-            <QRCodeCanvas value={url} />,
             <button className="cursor-pointer text-xl" onClick={handleCopyLink}>
               <FaRegCopy />
             </button>
